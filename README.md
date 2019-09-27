@@ -14,3 +14,5 @@ The project has been tested with:
 - GraalVM Enterprise Edition v19.2
 - Quarkus v0.23.0
 
+The best part is, this project allows you to create a native binary executable using GraalVM Native Image.
+You can execute "mvn clean package -Pnative" to create a native binary executable from your terminal.
