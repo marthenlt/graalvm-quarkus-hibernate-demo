@@ -28,18 +28,6 @@ import io.quarkus.panache.common.Sort;
 public class FruitResource {
 
     @GET
-    public List<Fruit> get() {
-        // return Fruit.listAll(Sort.by("name"));
-        List<Fruit> fruits = Fruit.listAll();
-        for (int i=0; i < fruits.size(); i++) {
-            System.out.println("Fruit id: " + fruits.get(i).id);
-            System.out.println("Fruit name: " + fruits.get(i).name);
-            System.out.println("Fruit country: " + fruits.get(i).country);
-        }
-        return fruits;
-    }
-
-    @GET
     @Path("/name/{name}")
     public Fruit getSingle(@PathParam String name) {
         Fruit entity = Fruit.find("name", name).firstResult();
@@ -47,6 +35,27 @@ public class FruitResource {
             throw new WebApplicationException("Fruit with name of " + name + " does not exist.", 404);
         }
         return entity;
+    }
+
+    @GET
+    @Path("/country/{country}")
+    public List<Fruit> getMany(@PathParam String country) {
+        List<Fruit> entities = Fruit.list("country", country);
+        if (entities.size() == 0) {
+            throw new WebApplicationException("Fruit from country of " + country + " does not exist.", 404);
+        }
+        return entities;
+    }
+
+    @GET
+    public List<Fruit> get() {
+        return Fruit.listAll(Sort.by("name"));
+        // List<Fruit> fruits = Fruit.listAll();
+        // for (int i=0; i < fruits.size(); i++) {
+        //     System.out.println("Fruit name: " + fruits.get(i).name);
+        //     System.out.println("Fruit country: " + fruits.get(i).country);
+        // }
+        // return fruits;
     }
 
     @GET

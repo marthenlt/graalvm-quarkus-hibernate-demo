@@ -4,5 +4,7 @@ create table Fruit(id bigint(20) NOT NULL AUTO_INCREMENT, name varchar(40), coun
 INSERT INTO Fruit(name, country) VALUES ('Cherry', 'Japan');
 INSERT INTO Fruit(name, country) VALUES ('Apple', 'USA');
 INSERT INTO Fruit(name, country) VALUES ('Banana', 'Indonesia');
+INSERT INTO Fruit(name, country) VALUES ('Durian', 'Indonesia');
+INSERT INTO Fruit(name, country) VALUES ('Rambutan', 'Indonesia');
 
 

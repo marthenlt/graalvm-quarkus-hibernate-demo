@@ -24,13 +24,11 @@ public class Fruit extends PanacheEntity {
     public String country;
 
     public Fruit(String name, String country) {
-        System.out.println("Fruit(String name, String country) constructor is called..");
         this.name = name;
         this.country = country;
     }
 
     public Fruit() {
-        System.out.println("Fruit() constructor is called..");
     }
 
 }
